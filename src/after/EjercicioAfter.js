@@ -7,13 +7,13 @@ const promiseEjercicio = () => {
     setTimeout(
       () =>
         resolve([
-          { id: 29, destacado: true, nombre: "mango" },
-          { id: 28, destacado: false, nombre: "pera" },
-          { id: 27, destacado: true, nombre: "limon" },
-          { id: 56, destacado: false, nombre: "banana" },
-          { id: 57, destacado: true, nombre: "anana" },
+          { id: 29, destacado: true, nombre: "mango", tipo: "fruta"},
+          { id: 28, destacado: false, nombre: "papa", tipo: "verdura" },
+          { id: 27, destacado: true, nombre: "limon", tipo: "fruta" },
+          { id: 56, destacado: false, nombre: "calabaza", tipo: "verdura"},
+          { id: 57, destacado: true, nombre: "anana", tipo: "fruta" },
         ]),
-      2500
+      3000
     );
   });
 };
@@ -43,7 +43,6 @@ export const EjercicioAfter = () => {
               <li key={element.id}>{element.nombre}</li>
             ))}
           </ul>
-          <h2>{dataToShow.length}</h2>
         </>
       )}
     </>
