@@ -21,7 +21,7 @@ export const EjercicioAfterCategorias = () => {
 
   const ejecutarEjercicio = () => {
     promiseEjercicio().then((data) => {
-      const dataFiltrada = data.filter(element => element.categoria == categoryID);
+      const dataFiltrada = data.filter(element => element.categoria === categoryID);
       setDataToShow(dataFiltrada);
     });
   };
@@ -31,15 +31,11 @@ export const EjercicioAfterCategorias = () => {
   }, [categoryID]);
 
   return (
-    <>
-      
          <ul>
             {dataToShow.map((element) => (
               <li key={element.id}>{element.nombre}</li>
             ))}
           </ul>
-      
-    </>
   );
 };
 
