@@ -21,6 +21,9 @@ const verduras="verduras";
                 <Link className="nav-link active" aria-current="page" to={'/'}>Inicio</Link>
                 </li>
                 <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to={'/seleccionados'}>Seleccionados</Link>
+                </li>
+                <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to={`/category/${frutas}`}>frutas</Link>
                 </li>
                 <li className="nav-item">

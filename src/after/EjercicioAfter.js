@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AddContext } from "./Context/AddContext";
 
 const promiseEjercicio = () => {
   return new Promise((resolve, reject) => {
@@ -8,18 +9,27 @@ const promiseEjercicio = () => {
       () =>
         resolve([
           { id: 29, destacado: true, nombre: "mango", tipo: "fruta"},
-          { id: 28, destacado: false, nombre: "papa", tipo: "verdura" },
+          { id: 28, destacado: true, nombre: "papa", tipo: "verdura" },
           { id: 27, destacado: true, nombre: "limon", tipo: "fruta" },
-          { id: 56, destacado: false, nombre: "calabaza", tipo: "verdura"},
-          { id: 57, destacado: true, nombre: "anana", tipo: "fruta" },
+          { id: 56, destacado: true, nombre: "calabaza", tipo: "verdura"},
+          { id: 58, destacado: true, nombre: "anana", tipo: "fruta" },
+          { id: 59, destacado: true, nombre: "frutilla", tipo: "fruta" },
+          { id: 60, destacado: true, nombre: "tomate", tipo: "fruta" },
+          { id: 61, destacado: true, nombre: "manzana", tipo: "fruta" },
+          { id: 62, destacado: true, nombre: "lechugas", tipo: "verdura" },
         ]),
-      3000
+      100
     );
   });
 };
 
 export const EjercicioAfter = () => {
   const [dataToShow, setDataToShow] = useState([]);
+  const [agregados, setAgregados] = useContext(AddContext)
+
+  const agregar = (element) =>{
+    setAgregados([...agregados, element])
+  }
 
   const ejecutarEjercicio = () => {
     promiseEjercicio().then((data) => {
@@ -40,7 +50,10 @@ export const EjercicioAfter = () => {
         <>
           <ul>
             {dataToShow.map((element) => (
-              <li key={element.id}>{element.nombre}</li>
+              <li key={element.id}>{element.nombre}
+              <button onClick={()=> agregar(element)}>Agregar a la lista</button>
+              </li>
+              
             ))}
           </ul>
         </>
